@@ -4,11 +4,10 @@ Car racing game
 import pygame, sys
 from pygame.locals import *
 
-from Game_solution import BLACK, DISPLAYSURF
-
 pygame.init()
 
 DISPLAYSURF = pygame.display.set_mode((300, 300))
+BLACK = (0, 0, 0)
 # game loop begins
 while True:
     # events
