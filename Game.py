@@ -18,7 +18,7 @@ RED = (255, 0, 0)
 GREEN  = (0, 255, 0)
 BLUE = (0, 0, 255)
 
-# setup 300x300 display
+# setup 400x600 display
 SCREEN_WIDTH = 400
 SCREEN_HEIGHT = 600
 DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -52,8 +52,16 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         pressed_keys = pygame.key.get_pressed()
         if pressed_keys[K_UP]:
-            self.rect.
+            self.rect.move_ip(0, -5)
+        if self.rect.right < SCREEN_WIDTH:
+            if pressed_keys[K_RIGHT]:
+                self.rect.move_ip(5,0)
 
+    def draw(self, surface):
+        surface.blit(self.image, self.rect)
+
+P1 = Player()
+E1 = Enemy()
 
 # game loop begins
 while True:
@@ -64,6 +72,8 @@ while True:
             sys.exit()
 
     # data changes
+    P1.update()
+    E1.move()
 
     # update the display
     pygame.display.update()
