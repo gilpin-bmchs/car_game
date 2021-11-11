@@ -53,9 +53,15 @@ class Player(pygame.sprite.Sprite):
         pressed_keys = pygame.key.get_pressed()
         if pressed_keys[K_UP]:
             self.rect.move_ip(0, -5)
+        if pressed_keys[K_DOWN]:
+            self.rect.move_ip(0,5)
+
+        if self.rect.left > 0:
+            if pressed_keys[K_LEFT]:
+                self.rect.move_ip(-5, 0)
         if self.rect.right < SCREEN_WIDTH:
             if pressed_keys[K_RIGHT]:
-                self.rect.move_ip(5,0)
+                self.rect.move_ip(5, 0)
 
     def draw(self, surface):
         surface.blit(self.image, self.rect)
@@ -74,6 +80,10 @@ while True:
     # data changes
     P1.update()
     E1.move()
+
+    DISPLAYSURF.fill(WHITE)
+    P1.draw(DISPLAYSURF)
+    E1.draw(DISPLAYSURF)
 
     # update the display
     pygame.display.update()
