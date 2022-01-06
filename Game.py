@@ -1,5 +1,6 @@
 '''
 Car racing game 
+Edit to the racing game code added
 '''
 
 # Imports
